@@ -65,3 +65,8 @@ You can also use Mediawiki4Intranet bundle. It already includes IntraACL and
 many other useful extensions which are patched to perform access right checks.
 
 See http://wiki.4intra.net/Mediawiki4Intranet
+
+= Fix wfMsg() undefined at MediaWiki 1.28 =
+
+https://www.mediawiki.org/wiki/Manual:Messages_API#Help_with_replacing_deprecated_wfMsg.2A_functions
+
