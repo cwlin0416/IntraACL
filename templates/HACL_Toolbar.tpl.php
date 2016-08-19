@@ -1,13 +1,13 @@
 <div id="hacl_toolbar">
 <?php if (count($options) > 1 && $canModify) { ?>
- <label for="hacl_protected_with"><?= wfMsg('hacl_toolbar_page_prot') ?></label>
- <select name="hacl_protected_with" id="hacl_protected_with" onchange="haclt_change_goto(this, '<?= wfMsg('hacl_toolbar_goto') ?>')">
+ <label for="hacl_protected_with"><?= wfMessage('hacl_toolbar_page_prot')->text() ?></label>
+ <select name="hacl_protected_with" id="hacl_protected_with" onchange="haclt_change_goto(this, '<?= wfMessage('hacl_toolbar_goto')->text()  ?>')">
   <?php foreach($options as $o) { ?>
    <option title="<?= htmlspecialchars($o['title']) ?>" <?= !empty($o['current']) ? ' selected="selected"' : '' ?> value="<?= htmlspecialchars($o['value']) ?>"><?= htmlspecialchars($o['name']) ?></option>
   <?php } ?>
  </select>
  <?php if ($selectedIndex !== false && $options[$selectedIndex]['title']) { ?>
-  <a id="hacl_toolbar_goto" href="<?= Title::newFromText($options[$selectedIndex]['title'])->getLocalUrl() ?>" target="_blank" title="<?= htmlspecialchars(wfMsg('hacl_toolbar_goto', $options[$selectedIndex]['title'])) ?>">
+  <a id="hacl_toolbar_goto" href="<?= Title::newFromText($options[$selectedIndex]['title'])->getLocalUrl() ?>" target="_blank" title="<?= htmlspecialchars(wfMessage('hacl_toolbar_goto', $options[$selectedIndex]['title'])->text() ) ?>">
    <img src="<?= $wgScriptPath ?>/resources/src/mediawiki.skinning/images/external-ltr.png" width="10" height="10" alt="&rarr;" />
   </a>
  <?php } else { ?>
@@ -16,33 +16,33 @@
   </a>
  <?php } ?>
 <?php } elseif (!$canModify) { ?>
- <?= wfMsg('hacl_toolbar_cannot_modify') ?>
+ <?= wfMessage('hacl_toolbar_cannot_modify')->text()  ?>
 <?php } else { ?>
- <?= wfMsg('hacl_toolbar_no_right_templates', $quick_acl_link) ?>
+ <?= wfMessage('hacl_toolbar_no_right_templates', $quick_acl_link)->text()  ?>
 <?php } if ($globalACL) { ?>
  <div class="haclt_tip">
-  <a onclick="haclt_show('gacl')" class="haclt_title" id="haclt_gacl_title"><?= wfMsg('hacl_toolbar_global_acl') ?></a>
+  <a onclick="haclt_show('gacl')" class="haclt_title" id="haclt_gacl_title"><?= wfMessage('hacl_toolbar_global_acl')->text()  ?></a>
   <div class="haclt_text" id="haclt_gacl_text" style="display: none"><div class="x">
-   <?= wfMsg('hacl_toolbar_global_acl_tip') ?><br /><?= $globalACL ?>
+   <?= wfMessage('hacl_toolbar_global_acl_tip')->text()  ?><br /><?= $globalACL ?>
   </div></div>
  </div>
 <?php } if ($anyLinks || $embeddedToolbar) { ?>
  <div class="haclt_tip">
-  <a onclick="haclt_show('emb')" class="haclt_title" id="haclt_emb_title"><?= wfMsg('hacl_toolbar_embedded_acl') ?></a>
+  <a onclick="haclt_show('emb')" class="haclt_title" id="haclt_emb_title"><?= wfMessage('hacl_toolbar_embedded_acl')->text()  ?></a>
   <div class="haclt_text" id="haclt_emb_text" style="display: none"><div class="x<?= $embeddedToolbar ? ' xl' : '' ?>" id="haclt_emb">
-   <?= $embeddedToolbar ? $embeddedToolbar : wfMsg('hacl_toolbar_loading') ?>
+   <?= $embeddedToolbar ? $embeddedToolbar : wfMessage('hacl_toolbar_loading')->text()  ?>
   </div></div>
  </div>
 <?php } if ($title->exists()) { ?>
  <a style="text-decoration: none" class="haclt_title" target="_blank" href="index.php?title=Special:IntraACL&action=acl&sd=<?= urlencode($pageSDTitle->getText()) ?>">
   <img src="<?= $haclgHaloScriptPath ?>/skins/images/edit.png" width="16" height="16" alt="Edit" />
-  <?= wfMsg('hacl_toolbar_advanced_'.($pageSDId ? 'edit' : 'create')) ?>
+  <?= wfMessage('hacl_toolbar_advanced_'.($pageSDId ? 'edit' : 'create'))->text()  ?>
  </a>
 <?php } elseif (!$hasQuickACL) {?>
- <?= wfMsg('hacl_toolbar_select_qacl', $quick_acl_link) ?>
+ <?= wfMessage('hacl_toolbar_select_qacl', $quick_acl_link)->text()  ?>
 <?php } if ($nonreadable) { ?>
  <input style="vertical-align: middle" type="checkbox" name="hacl_nonreadable_create" id="hacl_nonreadable_create" />
- <label style="vertical-align: middle" for="hacl_nonreadable_create"><?= wfMsg('hacl_create_nonreadable_article') ?></label>
+ <label style="vertical-align: middle" for="hacl_nonreadable_create"><?= wfMessage('hacl_create_nonreadable_article')->text()  ?></label>
 <?php } ?>
- <div class="qacl"><a target="_blank" href="<?= $quick_acl_link ?>" title="<?= wfMsg('hacl_toolbar_qacl_title') ?>"><?= wfMsg('hacl_toolbar_qacl') ?></a></div>
+ <div class="qacl"><a target="_blank" href="<?= $quick_acl_link ?>" title="<?= wfMessage('hacl_toolbar_qacl_title')->text()  ?>"><?= wfMessage('hacl_toolbar_qacl')->text()  ?></a></div>
 </div>

@@ -1,24 +1,24 @@
-<?= wfMsg('hacl_qacl_manage_text') ?>
+<?= wfMessage('hacl_qacl_manage_text')->text() ?>
 <fieldset style="margin: 0 0 16px 0">
- <legend><?= wfMsg('hacl_qacl_filter_sds') ?></legend>
+ <legend><?= wfMessage('hacl_qacl_filter_sds')->text() ?></legend>
  <form action="<?= $wgScript ?>">
-  <label for="hacl_qafilter"><?= wfMsg('hacl_qacl_filter') ?></label>
+  <label for="hacl_qafilter"><?= wfMessage('hacl_qacl_filter')->text() ?></label>
   <input type="hidden" name="title" value="Special:IntraACL" />
   <input type="hidden" name="action" value="quickaccess" />
   <input type="text" name="like" id="hacl_qafilter" value="<?= htmlspecialchars($like) ?>" />
-  <input type="submit" value="<?= wfMsg('hacl_qacl_filter_submit') ?>" />
+  <input type="submit" value="<?= wfMessage('hacl_qacl_filter_submit')->text() ?>" />
  </form>
 </fieldset>
 <?php if ($templates) { ?>
-<p><?= wfMsg('hacl_qacl_hint') ?></p>
+<p><?= wfMessage('hacl_qacl_hint')->text() ?></p>
 <form action="<?= $wgScript ?>?title=Special:IntraACL&action=quickaccess&save=1" method="POST">
  <input type="hidden" name="like" value="<?= htmlspecialchars($like) ?>" />
  <table class="wikitable">
   <tr>
-   <th><?= wfMsg('hacl_qacl_col_select') ?></th>
-   <th><?= wfMsg('hacl_qacl_col_default') ?></th>
-   <th><?= wfMsg('hacl_qacl_col_name') ?></th>
-   <th><?= wfMsg('hacl_qacl_col_actions') ?></th>
+   <th><?= wfMessage('hacl_qacl_col_select')->text() ?></th>
+   <th><?= wfMessage('hacl_qacl_col_default')->text() ?></th>
+   <th><?= wfMessage('hacl_qacl_col_name')->text() ?></th>
+   <th><?= wfMessage('hacl_qacl_col_actions')->text() ?></th>
   </tr>
   <?php foreach ($templates as $sd) { ?>
    <tr>
@@ -30,7 +30,7 @@
     </td>
     <td style="text-align: center"><a title="<?= $sd['title']->getText() ?>" href="<?= $sd['viewlink'] ?>"><?= $sd['title']->getText() ?></a></td>
     <td style="text-align: center">
-     <a title="<?= wfMsg('hacl_acllist_edit') ?>" href="<?= $sd['editlink'] ?>">
+     <a title="<?= wfMessage('hacl_acllist_edit')->text() ?>" href="<?= $sd['editlink'] ?>">
       <img src="<?= $haclgHaloScriptPath ?>/skins/images/edit.png" />
      </a>
     </td>
@@ -39,11 +39,11 @@
   <tr>
    <td></td>
    <td style="text-align: center"><input type="radio" name="qa_default" id="qd_clear" value="" <?= !$quickacl->default_pe_id ? ' checked="checked"' : '' ?> /></td>
-   <td style="text-align: center" colspan="2"><?= wfMsg('hacl_qacl_empty_default') ?></td>
+   <td style="text-align: center" colspan="2"><?= wfMessage('hacl_qacl_empty_default')->text() ?></td>
   </tr>
  </table>
  <p>
-  <input type="submit" value="<?= wfMsg('hacl_qacl_save') ?>" style="font-weight: bold" />
+  <input type="submit" value="<?= wfMessage('hacl_qacl_save')->text() ?>" style="font-weight: bold" />
  </p>
 </form>
 <script language="JavaScript">
@@ -67,5 +67,5 @@ var set_checked = function(x)
 };
 </script>
 <?php } else { ?>
- <?= wfMsg('hacl_qacl_empty') ?>
+ <?= wfMessage('hacl_qacl_empty')->text() ?>
 <?php } ?>
