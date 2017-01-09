@@ -555,7 +555,7 @@ class IntraACLSpecial extends SpecialPage
                 if (($aclArticle = new WikiPage($aclTitle)) &&
                     $aclArticle->exists())
                 {
-                    $aclContent = $aclArticle->getText();
+                    $aclContent = ContentHandler::getContentText($aclArticle->getContent());
                     $aclSDName = $aclTitle->getText();
                 }
                 else
